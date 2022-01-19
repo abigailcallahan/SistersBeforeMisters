@@ -10,11 +10,11 @@ public class ChanceRunner
 				cards.add(new Chance("Collect $200!", 0, 200));
 				cards.add(new Chance("You Lost $200", 0, -200));
 				cards.add(new Chance("Go forward three spaces", 3, 0));
-				cards.add(new Chance("Collect $300 and move forward two spaces", 2, 300));
-				cards.add(new Chance("Lose $100 and move backward two spaces", 2, -100));
-				cards.add(new Chance("Collect $100 and move forward one space", 1, 100));
+				cards.add(new Chance("Collect $200 and move forward two spaces", 2, 200));
+				cards.add(new Chance("Lose $200 and move backward two spaces", 2, -200));
+				cards.add(new Chance("Collect $200 and move forward one space", 1, 200));
 				cards.add(new Chance("Move back two spaces", -2, 0));
-				cards.add(new Chance("Lose $600", 0, -600));
+				cards.add(new Chance("Lose $200", 0, -200));
 				cards.add(new Chance("Move foward ten spaces", 10,0));
 				
 				pickCard();
@@ -26,7 +26,7 @@ public class ChanceRunner
 		
 		public static void pickCard()
 		{
-			System.out.print(cards.get(0).getOutput());
+			System.out.println(cards.get(0).getOutput());
 		}
 			
 

@@ -50,22 +50,39 @@ public class MoveAround
 
 				{
 					//chance
-					ChanceRunner.shuffle();
-					
 					System.out.println("You picked up: ");
 					ChanceRunner.Chance();
+					System.out.println();
 		
 					//set place to current place + or - 
 					chanceMove = ChanceRunner.cards.get(0).getChangePlace();
 					MonopolyRunner.player1.setPlace(MonopolyRunner.player1.getPlace() + chanceMove);
-					//for()
-					System.out.println("You are now on " + MonopolyRunner.player1.getPlace() );
-					
+					for(Board b : BoardArrayList.boardList)
+						{
+							if(b.getPlaceNum() == MonopolyRunner.player1.getPlace())
+								{
+									MonopolyRunner.player1.setPlace(b.getPlaceNum());
+									System.out.println("You are now on " + b.getName());
+								}
+							else
+								{
+									
+								}
+						}
 					//set money
 					chanceBalance = ChanceRunner.cards.get(0).getMoney();
-					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
-					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
-					
+					if(ChanceRunner.cards.get(0).getMoney() == -200)
+						{
+							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - chanceBalance);
+							System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
+						}
+					else
+						{
+							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
+							System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
+						}
+					ChanceRunner.cards.remove(0);
+					//if it gets to 0, then reset list
 				}
 			else if(MonopolyRunner.player1.getPlace() == 10)
 				{
@@ -76,8 +93,6 @@ public class MoveAround
 			else if(MonopolyRunner.player1.getPlace() == 13 || MonopolyRunner.player1.getPlace() == 22 || MonopolyRunner.player1.getPlace() == 37)
 				{
 					//community chest
-					ChestRunner.shuffle();
-					
 					System.out.println("You picked up: ");
 					ChestRunner.Chest();
 				}
