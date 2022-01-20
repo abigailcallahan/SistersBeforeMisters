@@ -14,7 +14,7 @@ public class MonopolyRunner
 				ChestRunner.shuffle();
 				ChanceRunner.shuffle();
 				introduction();
-				BoardArrayList.fillList();
+				BoardArrayList.fillListDisnopoly();
 				while(MonopolyRunner.player1.getBalance() > 0)
 					{
 						
