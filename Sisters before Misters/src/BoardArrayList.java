@@ -6,6 +6,7 @@ public class BoardArrayList
 		
 		public static void fillListDisnopoly()
 		{
+			//change to the correct numbers
 			boardList.add(new Board("Go", 0 , 0, false));
 			boardList.add(new Board("Ramone's Body Shop", 50, 1, false));
 			boardList.add(new Board("Chance", 0, 2, false));
@@ -51,6 +52,7 @@ public class BoardArrayList
 		
 		public static void fillListTradition()
 			{
+				//change to correct numbers
 				boardList.add(new Board("Go", 0 , 0, false));
 				boardList.add(new Board("Kentucky Avenue", 50, 1, false));
 				boardList.add(new Board("Chance", 0, 2, false));

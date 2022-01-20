@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class MoveAround
 	{
-
-
 		static Scanner input = new Scanner(System.in);
 		static String enter2;
 		static int newPlace;
@@ -66,6 +64,13 @@ public class MoveAround
 					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
+					ChanceRunner.cards.remove(0);
+					
+					if(ChanceRunner.cards.size() == 0)
+						{
+							ChanceRunner.Chance();
+						}
+					
 				}
 			else if(MonopolyRunner.player1.getPlace() == 10)
 				{
@@ -87,7 +92,7 @@ public class MoveAround
 					System.out.println("You have to pay 100");
 					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + 100);
 					System.out.println("Your new balance is " + MonopolyRunner.player1.getBalance());
-										
+				
 				}
 			else if(MonopolyRunner.player1.getPlace() == 20)
 				{

@@ -26,7 +26,7 @@ public class ChanceRunner
 		
 		public static void pickCard()
 		{
-			System.out.print(cards.get(0).getOutput());
+			System.out.println(cards.get(0).getOutput());
 		}
 			
 
