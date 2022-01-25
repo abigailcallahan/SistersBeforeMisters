@@ -22,12 +22,6 @@ public class MoveInReverse {
 		while(MonopolyRunner.player1.getPlace() != 20)
 		{
 			otherMoves();
-			if(MonopolyRunner.player1.getPlace() == 20)
-			{
-				System.out.println("You landed on free parking again, so we go back to moving around the board regularly");
-				MoveAround.startMoving();
-				System.exit(0);
-			}
 		}
 		
 	}
@@ -61,14 +55,28 @@ public class MoveInReverse {
 			Dice.rollDice();
 			System.out.println("You rolled a " + Dice.diceRoll);
 			
+			//exits if it gets back to free parking 
+			if(MonopolyRunner.player1.getPlace() - Dice.diceRoll == 20)
+			{
+				System.out.println("You landed on free parking again, so we go back to moving around the board regularly");
+				MoveAround.startMoving();
+				System.exit(0);
+			}
 			
-			if(MonopolyRunner.player1.getPlace() - Dice.diceRoll < 0)
+			else if(MonopolyRunner.player1.getPlace() - Dice.diceRoll == 0)
+			{
+				PassGo.PassGo();
+				MonopolyRunner.player1.setPlace(0);
+				MoveAround.doAction();
+			}
+			else if(MonopolyRunner.player1.getPlace() - Dice.diceRoll < 0)
 			{
 				reverseNewPlace2 = MonopolyRunner.player1.getPlace() - Dice.diceRoll;
 				PassGo.PassGo();
 				int reverseNewPlace3 = reverseNewPlace2 + 39;
 				MonopolyRunner.player1.setPlace(reverseNewPlace3 + 1); 
 				System.out.println("You are on: " + BoardArrayList.boardList.get(reverseNewPlace3 + 1).getName());
+				MoveAround.doAction();
 			}
 			else
 			{
@@ -91,13 +99,26 @@ public class MoveInReverse {
 			Dice.rollDice();
 			System.out.println("You rolled a " + Dice.diceRoll);
 			
-			if(MonopolyRunner.player1.getPlace() - Dice.diceRoll < 0)
+			//exits if it gets back to free parking 
+			if(MonopolyRunner.player1.getPlace() - Dice.diceRoll == 20)
 			{
-				reverseNewPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
+				System.out.println("You landed on free parking again, so we go back to moving around the board regularly");
+				MoveAround.startMoving();
+				System.exit(0);
+			}
+			else if(MonopolyRunner.player1.getPlace() - Dice.diceRoll == 0)
+			{
+				PassGo.PassGo();
+				MonopolyRunner.player1.setPlace(0);
+				MoveAround.doAction();
+			}
+			else if(MonopolyRunner.player1.getPlace() - Dice.diceRoll < 0)
+			{
+				reverseNewPlace2 = MonopolyRunner.player1.getPlace() - Dice.diceRoll;
 				PassGo.PassGo();
 				int reverseNewPlace3 = reverseNewPlace2 + 39;
-				MonopolyRunner.player1.setPlace(reverseNewPlace3 - 1); 
-				System.out.println("You are on: " + BoardArrayList.boardList.get(reverseNewPlace3 - 1).getName());
+				MonopolyRunner.player1.setPlace(reverseNewPlace3 + 1); 
+				System.out.println("You are on: " + BoardArrayList.boardList.get(reverseNewPlace3 + 1).getName());
 			}
 			else
 			{

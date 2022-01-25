@@ -64,28 +64,27 @@ public class MoveAround
 		
 		public static void moveSpaces()
 		{
-			if(MonopolyRunner.player1.getPlace() + Dice.diceRoll <= 39)
+			if(MonopolyRunner.player1.getPlace() + Dice.diceRoll == 40)
+			{
+				System.out.println("You rolled a " + Dice.diceRoll);
+				PassGo.PassGo();
+				MonopolyRunner.player1.setPlace(0);
+			}
+			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll <= 39)
 			{
 				System.out.println("You rolled a " + Dice.diceRoll);
 				newPlace = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
 				System.out.println("You landed on: " + BoardArrayList.boardList.get(newPlace).getName());
 				MonopolyRunner.player1.setPlace(newPlace);
 			}
-			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll > 39)
+			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll > 40)
 			{
-				if(MonopolyRunner.player1.getPlace() + Dice.diceRoll == 40)
-				{
-				//go through this and do nothing until they get to the go action 	
-				}
-				else
-				{
-					System.out.println("You rolled a " + Dice.diceRoll);
-					newPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
-					PassGo.PassGo();
-					int newPlace3 = newPlace2 - 39;
-					MonopolyRunner.player1.setPlace(newPlace3 - 1); 
-					System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
-				}
+				System.out.println("You rolled a " + Dice.diceRoll);
+				newPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
+				PassGo.PassGo();
+				int newPlace3 = newPlace2 - 39;
+				MonopolyRunner.player1.setPlace(newPlace3 - 1); 
+				System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
 				
 			}
 			
@@ -96,8 +95,7 @@ public class MoveAround
 			if(MonopolyRunner.player1.getPlace() == 0)
 				{
 					//go method goes here
-					PassGo.PassGo();
-					MonopolyRunner.player1.setPlace(0);
+					//i already declared the go method above so this will just be blank
 				}
 
 			else if(MonopolyRunner.player1.getPlace() == 7 || MonopolyRunner.player1.getPlace() == 22 || MonopolyRunner.player1.getPlace() == 36)
@@ -124,18 +122,18 @@ public class MoveAround
 					
 					//set money
 					chanceBalance = ChanceRunner.cards.get(0).getMoney();
-					if(ChanceRunner.cards.get(0).getMoney() == -200)
-						{
-							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - chanceBalance);
-						}
-					else if(ChanceRunner.cards.get(0).getMoney() == 200)
-						{
-							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
-						}
-					else
-						{
-							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
-						}
+//					if(ChanceRunner.cards.get(0).getMoney() == -200)
+//						{
+//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - chanceBalance);
+//						}
+//					else if(ChanceRunner.cards.get(0).getMoney() == 200)
+//						{
+//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
+//						}
+//					else
+//						{
+							//MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
+						//}
 					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
@@ -163,7 +161,7 @@ public class MoveAround
 					if(jailDecision == 1)
 					{
 						MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
-						System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+						System.out.println("Ok, you out of jail, and your new balance is: " + MonopolyRunner.player1.getBalance());
 					}
 					else if(jailDecision == 2)
 					{
@@ -185,7 +183,7 @@ public class MoveAround
 							if(jailDecision == 1)
 							{
 								MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
-								System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+								System.out.println("Ok, you out of jail, and your new balance is: " + MonopolyRunner.player1.getBalance());
 								System.out.println();
 							}
 							else if(jailDecision == 2)
@@ -208,7 +206,7 @@ public class MoveAround
 									if(jailDecision == 1)
 									{
 										MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
-										System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+										System.out.println("Ok, you out of jail, and your new balance is: " + MonopolyRunner.player1.getBalance());
 										System.out.println();
 									}
 									else if(jailDecision == 2)
@@ -224,8 +222,7 @@ public class MoveAround
 										{
 											System.out.println("You did not roll doubles, so you automatically pay the $50 fine.");
 											MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
-											System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
-											System.out.println();
+											System.out.println("Ok, you out of jail, and your new balance is: " + MonopolyRunner.player1.getBalance());
 										}
 									}
 								}
@@ -246,18 +243,18 @@ public class MoveAround
 					
 					//set money
 					communityBalance = ChestRunner.cards.get(0).getMoney();
-					if(ChestRunner.cards.get(0).getMoney() == -200)
-						{
-							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - communityBalance);
-						}
-					else if(ChestRunner.cards.get(0).getMoney() == 200)
-						{
+//					if(ChestRunner.cards.get(0).getMoney() == -200)
+//						{
+//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - communityBalance);
+//						}
+//					else if(ChestRunner.cards.get(0).getMoney() == 200)
+//						{
+//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
+//						}
+//					else
+//						{
 							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
-						}
-					else
-						{
-							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
-						}
+						//}
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
 					ChestRunner.cards.remove(0);
