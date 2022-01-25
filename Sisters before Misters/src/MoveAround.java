@@ -5,8 +5,11 @@ import java.util.ArrayList;
 public class MoveAround
 	{
 		static Scanner input = new Scanner(System.in);
+		static Scanner intInput = new Scanner(System.in);
+		
 		static String enter2;
 		static int newPlace;
+		static int newPlace2;
 		static String space;
 		static int balanceNew;
 		
@@ -16,15 +19,44 @@ public class MoveAround
 		static int communityMove;
 		static int communityBalance;
 		
+		static int menuDecision;
+		static int jailDecision;
+		
+		static String enter3;
+		
 		public static void startMoving()
 			{
-				System.out.println("OK let's roll the dice");
-				System.out.println("Press enter to roll");
-				enter2 = input.nextLine();
+				System.out.println("\nWould you like to: ");
+				System.out.println("1) continue rolling");
+				System.out.println("2) look at your property inventory");
+				menuDecision = intInput.nextInt();
 				
-				Dice.rollDice();
-				moveSpaces();
-				doAction();
+				if(menuDecision == 1)
+				{
+					System.out.println("\nOK let's roll the dice");
+					System.out.println("Press enter to roll");
+					enter2 = input.nextLine();
+					
+					Dice.rollDice();
+					moveSpaces();
+					doAction();
+				}
+				else if(menuDecision == 2)
+				{
+					
+					//show inventory
+					ShowInventory.showInventory();
+					
+					//go back to rolling
+					System.out.println("Press enter to continue rolling and to continue playing the game");
+					enter3 = input.nextLine();
+					
+					Dice.rollDice();
+					moveSpaces();
+					doAction();
+				}
+				
+				
 				
 			}
 
@@ -32,10 +64,23 @@ public class MoveAround
 		
 		public static void moveSpaces()
 		{
+			if(MonopolyRunner.player1.getPlace() + Dice.diceRoll <= 39)
+			{
+				System.out.println("You rolled a " + Dice.diceRoll);
+				newPlace = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
+				System.out.println("You landed on: " + BoardArrayList.boardList.get(newPlace).getName());
+				MonopolyRunner.player1.setPlace(newPlace);
+			}
+			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll > 39)
+		{
+			System.out.println("You rolled a " + Dice.diceRoll);
+			newPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
+			PassGo.PassGo();
+			int newPlace3 = newPlace2 - 39;
+			MonopolyRunner.player1.setPlace(newPlace3 - 1);
+			System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
+		}
 			
-			newPlace = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
-			System.out.println("You landed on: " + BoardArrayList.boardList.get(newPlace).getName());
-			MonopolyRunner.player1.setPlace(newPlace);
 		}
 		
 		public static void doAction()
@@ -98,6 +143,89 @@ public class MoveAround
 					//go to jail 
 					System.out.println("You are now in jail");
 					MonopolyRunner.player1.setPlace(10);
+					
+					System.out.println("Would you like to: ");
+					System.out.println("1) Pay the 50$ fine?");
+					System.out.println("2) Roll to try and get doubles?");
+					jailDecision = input.nextInt();
+					System.out.println();
+					
+					
+					if(jailDecision == 1)
+					{
+						MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
+						System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+					}
+					else if(jailDecision == 2)
+					{
+						System.out.println("Let us roll");
+						Dice.rollDice();
+						if(Dice.dice1 == Dice.dice2) 
+						{
+							System.out.println("Congrats! You rolled a " + Dice.dice1 + " and a " + Dice.dice2 + " . You are out of jail");
+							System.out.println();
+						}
+						else
+						{
+							System.out.println("Aw, you rolled a " + Dice.dice1 + " and a " + Dice.dice2 + " . You are still in jail");
+							System.out.println("Next turn - Would you like to: ");
+							System.out.println("1) Pay the 50$ fine?");
+							System.out.println("2) Roll to try and get doubles for the second time?");
+							jailDecision = input.nextInt();
+							
+							if(jailDecision == 1)
+							{
+								MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
+								System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+								System.out.println();
+							}
+							else if(jailDecision == 2)
+							{
+								System.out.println("Let us roll");
+								Dice.rollDice();
+								if(Dice.dice1 == Dice.dice2) 
+								{
+									System.out.println("Congrats! You rolled a " + Dice.dice1 + " and a " + Dice.dice2 + " . You are out of jail");
+									System.out.println();
+								}
+								else
+								{
+									System.out.println("Aw, you rolled a " + Dice.dice1 + " and a " + Dice.dice2 + " . You are still in jail");
+									System.out.println("Next turn - Would you like to: ");
+									System.out.println("1) Pay the 50$ fine?");
+									System.out.println("2) Roll to try and get doubles for the third time?");
+									jailDecision = input.nextInt();
+									
+									if(jailDecision == 1)
+									{
+										MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
+										System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+										System.out.println();
+									}
+									else if(jailDecision == 2)
+									{
+										System.out.println("Let us roll");
+										Dice.rollDice();
+										if(Dice.dice1 == Dice.dice2) 
+										{
+											System.out.println("Congrats! You rolled a " + Dice.dice1 + " and a " + Dice.dice2 + " . You are out of jail");
+											System.out.println();
+										}
+										else
+										{
+											System.out.println("You did not roll doubles, so you automatically pay the $50 fine.");
+											MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
+											System.out.println("Ok, you out of jail, and you new balance is: " + MonopolyRunner.player1.getBalance());
+											System.out.println();
+										}
+									}
+								}
+							}
+						}
+					}
+					
+					
+					
 				}
 			else if(MonopolyRunner.player1.getPlace() == 2 || MonopolyRunner.player1.getPlace() == 17 || MonopolyRunner.player1.getPlace() == 33)
 				{
@@ -140,7 +268,7 @@ public class MoveAround
 			else if(MonopolyRunner.player1.getPlace() == 20)
 				{
 					//free parking
-					System.out.println("You get a free space");
+					System.out.println("You have to move in reverse now!");
 				}
 			else if(MonopolyRunner.player1.getPlace() == 4)
 				{

@@ -9,8 +9,6 @@ public class MonopolyRunner
 		static Player player1;
 		static int themeChoice;
 		
-		//to do
-		//finish the first game with two players
 
 		public static void main(String[] args)
 			{
@@ -60,16 +58,5 @@ public class MonopolyRunner
 				}
 		}
 
-//		public static void PassGoMain()
-//			{
-//
-//				// if(MoveAround.place == 0)
-//
-//				if (MonopolyRunner.player1.getPlace() == 0)
-//					{
-//						PassGo.PassGo();
-//					}
-//
-//			}
 
 	}
