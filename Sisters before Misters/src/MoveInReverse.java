@@ -16,6 +16,7 @@ public class MoveInReverse {
 	
 	public static void moveInReverse()
 	{
+		
 		initialMove();
 		
 		
@@ -28,6 +29,7 @@ public class MoveInReverse {
 	
 	public static void initialMove()
 	{
+		//get out of free parking 
 		System.out.println("Press enter to roll");
 		enterReverse = reverseInput.nextLine();
 		

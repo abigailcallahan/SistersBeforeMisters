@@ -64,12 +64,15 @@ public class MoveAround
 		
 		public static void moveSpaces()
 		{
+			
+			//if they are directly on GO
 			if(MonopolyRunner.player1.getPlace() + Dice.diceRoll == 40)
 			{
 				System.out.println("You rolled a " + Dice.diceRoll);
 				PassGo.PassGo();
 				MonopolyRunner.player1.setPlace(0);
 			}
+			//if they have not passed go yet
 			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll <= 39)
 			{
 				System.out.println("You rolled a " + Dice.diceRoll);
@@ -79,13 +82,13 @@ public class MoveAround
 			}
 			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll > 40)
 			{
+				//if they passed go
 				System.out.println("You rolled a " + Dice.diceRoll);
 				newPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
 				PassGo.PassGo();
 				int newPlace3 = newPlace2 - 39;
 				MonopolyRunner.player1.setPlace(newPlace3 - 1); 
 				System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
-				
 			}
 			
 		}
@@ -94,13 +97,10 @@ public class MoveAround
 		{
 			if(MonopolyRunner.player1.getPlace() == 0)
 				{
-					//go method goes here
 					//i already declared the go method above so this will just be blank
 				}
 
 			else if(MonopolyRunner.player1.getPlace() == 7 || MonopolyRunner.player1.getPlace() == 22 || MonopolyRunner.player1.getPlace() == 36)
-
-
 				{
 					//chance
 					ChanceRunner.shuffle();
@@ -118,22 +118,8 @@ public class MoveAround
 									System.out.println("You are now on " + b.getName());
 								}
 						}
-					
-					
 					//set money
 					chanceBalance = ChanceRunner.cards.get(0).getMoney();
-//					if(ChanceRunner.cards.get(0).getMoney() == -200)
-//						{
-//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - chanceBalance);
-//						}
-//					else if(ChanceRunner.cards.get(0).getMoney() == 200)
-//						{
-//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
-//						}
-//					else
-//						{
-							//MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
-						//}
 					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
@@ -143,7 +129,6 @@ public class MoveAround
 						{
 							ChanceRunner.Chance();
 						}
-					
 				}
 			else if(MonopolyRunner.player1.getPlace() == 30)
 				{
@@ -243,18 +228,7 @@ public class MoveAround
 					
 					//set money
 					communityBalance = ChestRunner.cards.get(0).getMoney();
-//					if(ChestRunner.cards.get(0).getMoney() == -200)
-//						{
-//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - communityBalance);
-//						}
-//					else if(ChestRunner.cards.get(0).getMoney() == 200)
-//						{
-//							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
-//						}
-//					else
-//						{
-							MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
-						//}
+					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
 					ChestRunner.cards.remove(0);
