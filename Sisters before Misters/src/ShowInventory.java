@@ -41,15 +41,7 @@ public class ShowInventory
 	
 	public static void emptyList()
 	{
-		//does not work yet
-//		for(int i = 0; i < player1Inventory.size(); i++)
-//		{
-//			player1Inventory.remove(i);
-//		}
-//		for(Inventory s : player1Inventory)
-//		{
-//			player1Inventory.remove(s);
-//		}
+		player1Inventory.removeAll(player1Inventory);
 	}
 	
 	
