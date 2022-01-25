@@ -6,6 +6,7 @@ public class Player
 		private int balance;
 		private int place;
 		
+		
 		public Player(String c, int b, int p)
 			{
 				character = c;

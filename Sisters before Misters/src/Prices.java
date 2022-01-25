@@ -15,6 +15,7 @@ public class Prices
 					{
 						if (BoardArrayList.boardList.get(MonopolyRunner.player1.getPlace()).getisTaken() == false)
 							{
+							//telling what the property is
 								System.out.println("This property is " + BoardArrayList.boardList.get(MonopolyRunner.player1.getPlace()).getRent() + " dollars. Would you like to purchase it?");
 								System.out.println("1. Yes");
 								System.out.println("2. No");
@@ -22,6 +23,7 @@ public class Prices
 
 								if (buy == 1)
 									{
+									//sets buy to true
 										System.out.println();
 										System.out.println("Congrats! You now own " + BoardArrayList.boardList.get(MonopolyRunner.player1.getPlace()).getName());
 										BoardArrayList.boardList.get(MonopolyRunner.player1.getPlace()).setTaken(true);
