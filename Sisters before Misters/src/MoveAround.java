@@ -26,6 +26,8 @@ public class MoveAround
 		
 		public static void startMoving()
 			{
+			
+				//continue rolling or show inventory?
 				System.out.println("\nWould you like to: ");
 				System.out.println("1) continue rolling");
 				System.out.println("2) look at your property inventory");
@@ -33,6 +35,7 @@ public class MoveAround
 				
 				if(menuDecision == 1)
 				{
+					//continue rolling 
 					System.out.println("\nOK let's roll the dice");
 					System.out.println("Press enter to roll");
 					enter2 = input.nextLine();
@@ -55,9 +58,6 @@ public class MoveAround
 					moveSpaces();
 					doAction();
 				}
-				
-				
-				
 			}
 
 
@@ -72,14 +72,22 @@ public class MoveAround
 				MonopolyRunner.player1.setPlace(newPlace);
 			}
 			else if(MonopolyRunner.player1.getPlace() + Dice.diceRoll > 39)
-		{
-			System.out.println("You rolled a " + Dice.diceRoll);
-			newPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
-			PassGo.PassGo();
-			int newPlace3 = newPlace2 - 39;
-			MonopolyRunner.player1.setPlace(newPlace3 - 1);
-			System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
-		}
+			{
+				if(MonopolyRunner.player1.getPlace() + Dice.diceRoll == 40)
+				{
+				//go through this and do nothing until they get to the go action 	
+				}
+				else
+				{
+					System.out.println("You rolled a " + Dice.diceRoll);
+					newPlace2 = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
+					PassGo.PassGo();
+					int newPlace3 = newPlace2 - 39;
+					MonopolyRunner.player1.setPlace(newPlace3 - 1); 
+					System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
+				}
+				
+			}
 			
 		}
 		
@@ -89,6 +97,7 @@ public class MoveAround
 				{
 					//go method goes here
 					PassGo.PassGo();
+					MonopolyRunner.player1.setPlace(0);
 				}
 
 			else if(MonopolyRunner.player1.getPlace() == 7 || MonopolyRunner.player1.getPlace() == 22 || MonopolyRunner.player1.getPlace() == 36)
@@ -269,6 +278,7 @@ public class MoveAround
 				{
 					//free parking
 					System.out.println("You have to move in reverse now!");
+					MoveInReverse.moveInReverse();
 				}
 			else if(MonopolyRunner.player1.getPlace() == 4)
 				{
