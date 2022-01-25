@@ -279,6 +279,8 @@ public class MoveAround
 					//free parking
 					System.out.println("You have to move in reverse now!");
 					MoveInReverse.moveInReverse();
+					
+					
 				}
 			else if(MonopolyRunner.player1.getPlace() == 4)
 				{
