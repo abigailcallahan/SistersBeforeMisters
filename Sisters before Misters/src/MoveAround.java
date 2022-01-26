@@ -115,7 +115,7 @@ public class MoveAround
 		//player 1
 		public static void moveSpaces()
 		{
-			
+		
 			//if they are directly on GO
 			if(MonopolyRunner.player1.getPlace() + Dice.diceRoll == 40)
 			{
@@ -128,6 +128,7 @@ public class MoveAround
 			{
 				System.out.println("You rolled a " + Dice.diceRoll);
 				newPlace = MonopolyRunner.player1.getPlace() + Dice.diceRoll;
+				//comment these bottom two lines out for free parking test
 				System.out.println("You landed on: " + BoardArrayList.boardList.get(newPlace).getName());
 				MonopolyRunner.player1.setPlace(newPlace);
 			}
@@ -142,7 +143,13 @@ public class MoveAround
 				System.out.println("You are on: " + BoardArrayList.boardList.get(newPlaceP3 - 1).getName());
 			}
 			
+			
+			//free parking method test
+			//MonopolyRunner.player1.setPlace(20);
+			//System.out.println("You landed on Free Parking.");
+			
 		}
+		
 		
 		//player 2
 		public static void moveSpaces2()
@@ -160,6 +167,7 @@ public class MoveAround
 			{
 				System.out.println("You rolled a " + Dice.diceRoll);
 				newPlaceP2 = MonopolyRunner.player2.getPlace() + Dice.diceRoll;
+				//comment these bottom two lines out for free parking test
 				System.out.println("You landed on: " + BoardArrayList.boardList.get(newPlaceP2).getName());
 				MonopolyRunner.player2.setPlace(newPlaceP2);
 			}
@@ -174,6 +182,10 @@ public class MoveAround
 				System.out.println("You are on: " + BoardArrayList.boardList.get(newPlace3 - 1).getName());
 			}
 			
+			
+			//free parking method test
+			//MonopolyRunner.player2.setPlace(20);
+			//System.out.println("You landed on free parking");
 		}
 		
 		

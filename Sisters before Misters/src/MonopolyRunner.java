@@ -25,13 +25,18 @@ public class MonopolyRunner
 				BoardArrayList.fillListDisnopoly();
 				while(MonopolyRunner.player1.getBalance() > 0)
 					{
+					
 						player1Turn();
 						player2Turn();
 					}
 				
-				if(MonopolyRunner.player1.getBalance() <= 0)
+				if(player1.getBalance() <= 0)
 				{
-					System.out.println("You ran out of money, the game is over");
+					System.out.println("Player 1 ran out of money, the game is over");
+				}
+				else if(player2.getBalance() <= 0)
+				{
+					System.out.println("Player 2 ran out of money, the game is over");
 				}
 			}
 
