@@ -4,29 +4,24 @@ public class ShowInventory
 	{
 	
 	static ArrayList<Inventory> player1Inventory = new ArrayList<Inventory>();
+	static ArrayList<Inventory> player2Inventory = new ArrayList<Inventory>();
 	
 	public static void showInventory()
 	{
-		fillInventoryList();
+		//fillInventoryList();
 		displayInventory();
-		emptyList();
+		//emptyList();
 	}
 	
-	public static void fillInventoryList()
+	public static void showInventory2()
 	{
-		for(Board b : BoardArrayList.boardList)
-		{
-			if(b.getisTaken() == true)
-			{
-				player1Inventory.add(new Inventory(b.getName()));
-			}
-			else
-			{
-				
-			}
-		}
+		//fillInventoryList();
+		displayInventory2();
+		//emptyList();
 	}
 	
+	
+	//player 1
 	public static void displayInventory()
 	{
 		int counter = 1;
@@ -38,6 +33,19 @@ public class ShowInventory
 		}
 		System.out.println();
 	}
+	
+	//player 2
+		public static void displayInventory2()
+		{
+			int counter = 1;
+			System.out.println("You own: ");
+			for(int i = 0; i < player2Inventory.size(); i++)
+			{
+				System.out.println(counter + ") " + player2Inventory.get(i).getPropertyName());
+				counter++;
+			}
+			System.out.println();
+		}
 	
 	public static void emptyList()
 	{
