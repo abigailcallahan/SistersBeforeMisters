@@ -26,6 +26,9 @@ public class MonopolyRunner
 						if(MonopolyRunner.player1.getBalance() <= 0)
 							{
 								System.out.println("You ran out of money, the game is over");
+								
+								
+								
 							}
 					}
 			}
