@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class MonopolyRunner
 	{
 		static Scanner input = new Scanner(System.in);
+		static Scanner intInput = new Scanner(System.in);
 		static String name;
 		static String name2;
 		static String enter;
@@ -17,22 +18,24 @@ public class MonopolyRunner
 				ChestRunner.shuffle();
 				ChanceRunner.shuffle();
 				
-				introduction();
+				
+				askTheme();
 
-				//askTheme();
 
 				BoardArrayList.fillListDisnopoly();
 				while(MonopolyRunner.player1.getBalance() > 0)
 					{
-						MoveAround.startMoving();
-						if(MonopolyRunner.player1.getBalance() <= 0)
-							{
-								System.out.println("You ran out of money, the game is over");
-							}
+						player1Turn();
+						player2Turn();
 					}
+				
+				if(MonopolyRunner.player1.getBalance() <= 0)
+				{
+					System.out.println("You ran out of money, the game is over");
+				}
 			}
 
-		public static void introduction()
+		public static void disnopolyIntroduction()
 			{
 			//introduces player 1
 			System.out.println("Hello and welcome to Disnopoly! ");
@@ -56,16 +59,31 @@ public class MonopolyRunner
 		public static void askTheme()
 		{
 			System.out.println("Would you like to play (1)Disnopoly or (2)Traditional Monopoly?");
-			themeChoice = input.nextInt();
+			themeChoice = intInput.nextInt();
 			if(themeChoice == 1)
 				{
 					//play disnopoly
+					disnopolyIntroduction();
 				}
 			else
 				{
 					//play monopoly
 				}
 		}
+		
+		public static void player1Turn()
+		{
+			System.out.println("\nOk, player 1, " + name + ", it is your turn");
+			MoveAround.startMoving();
+		}
+		
+		public static void player2Turn()
+		{
+			System.out.println("\nOk, player 2, " + name2 + ", it is your turn");
+			MoveAround.startMoving2();
+		}
+		
+		
 
 
 	}
