@@ -78,7 +78,7 @@ public class Prices
 
 					else if (BoardArrayList.boardList.get(MonopolyRunner.player2.getPlace()).getisTaken() == true)
 						{
-							System.out.println("Either you or player 1 already owns this propoty oops!");
+							System.out.println("Either you or player 1 already owns this property oops!");
 						}
 				}
 		}
