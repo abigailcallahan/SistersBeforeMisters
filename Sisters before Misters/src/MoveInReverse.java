@@ -36,15 +36,16 @@ public class MoveInReverse {
 		while(MonopolyRunner.player1.getPlace() != 20 && MonopolyRunner.player1.getBalance() > 0)
 		{	
 				MonopolyRunner.player2Turn();
+				
 				System.out.println("\nOk, player 1, your turn again");
 				otherMoves();	
 		}
 		
-		if(MonopolyRunner.player1.getBalance() <= 0)
-		{
-			System.out.println("Player 1 ran out of money, the game is over ");
-			
-		}
+//		if(MonopolyRunner.player1.getBalance() <= 0)
+//		{
+//			System.out.println("Player 1 ran out of money, the game is over ");
+//			
+//		}
 		
 	}
 	
@@ -62,12 +63,12 @@ public class MoveInReverse {
 			otherMoves2();	
 		}
 		
-		if(MonopolyRunner.player2.getBalance() <= 0)
-		{
-			System.out.println("Player 2 ran out of money, the game is over ");
-			
-	
-		}
+//		if(MonopolyRunner.player2.getBalance() <= 0)
+//		{
+//			System.out.println("Player 2 ran out of money, the game is over ");
+//			
+//	
+//		}
 		
 	}
 	
