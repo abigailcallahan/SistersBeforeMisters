@@ -370,7 +370,7 @@ public class MoveAroundTrad
 			else
 				{
 					//all the other properties
-					Prices.checkPrices();
+					PricesTrad.checkPrices();
 					
 				}
 		}
@@ -553,7 +553,7 @@ public class MoveAroundTrad
 			else
 				{
 					//all the other properties
-					Prices.checkPrices2();
+					PricesTrad.checkPrices2();
 					
 				}
 		}
