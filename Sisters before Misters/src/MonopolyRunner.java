@@ -38,15 +38,7 @@ public class MonopolyRunner
 							
 							player2Turn();
 						}
-					
-//					if(player1.getBalance() <= 0)
-//					{
-//						System.out.println("Player 1 ran out of money, the game is over");
-//					}
-//					else if(player2.getBalance() <= 0)
-//					{
-//						System.out.println("Player 2 ran out of money, the game is over");
-//					}
+
 				}
 				
 			else if(themeChoice == 2)
@@ -58,8 +50,8 @@ public class MonopolyRunner
 					while(MonopolyRunner.player1.getBalance() > 0)
 						{
 					
-							player1Turn();
-							player2Turn();
+							player1TurnTrad();
+							player2TurnTrad();
 						}
 				
 					if(player1.getBalance() <= 0)
@@ -154,6 +146,40 @@ public class MonopolyRunner
 			}
 			
 		}
+		
+		public static void player1TurnTrad()
+			{
+				System.out.println("\nOk, player 1, " + name + ", it is your turn");
+				MoveAroundTrad.startMoving();
+				
+				if(player1.getBalance() <= 0)
+				{
+					System.out.println("Player 1 ran out of money and the game is over");
+					System.exit(0);
+				}
+				else if(player2.getBalance() <= 0)
+				{
+					System.out.println("Player 2 ran out of money and the game is over");
+					System.exit(0);
+				}
+			}
+			
+			public static void player2TurnTrad()
+			{
+				System.out.println("\nOk, player 2, " + name2 + ", it is your turn");
+				MoveAroundTrad.startMoving2();
+				if(player1.getBalance() <= 0)
+				{
+					System.out.println("Player 1 ran out of money and the game is over");
+					System.exit(0);
+				}
+				else if(player2.getBalance() <= 0)
+				{
+					System.out.println("Player 2 ran out of money and the game is over");
+					System.exit(0);
+				}
+				
+			}
 		
 		
 
