@@ -149,8 +149,8 @@ public class MoveAroundTrad
 			
 			
 			//free parking method test
-			//MonopolyRunner.player1.setPlace(20);
-			//System.out.println("You landed on Free Parking.");
+//			MonopolyRunner.player1.setPlace(20);
+//			System.out.println("You landed on Free Parking.");
 			
 		}
 		

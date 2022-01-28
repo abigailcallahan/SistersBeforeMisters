@@ -184,8 +184,8 @@ public class MoveAround
 			
 			
 			//free parking method test
-			//MonopolyRunner.player2.setPlace(20);
-			//System.out.println("You landed on free parking");
+//			MonopolyRunner.player2.setPlace(20);
+//			System.out.println("You landed on free parking");
 		}
 		
 		
@@ -347,7 +347,7 @@ public class MoveAround
 				{
 					//free parking
 					System.out.println("You have to move in reverse now!");
-					MoveInReverse.moveInReverse();
+					MoveInReverse.moveInReverse2();
 					
 					
 				}
