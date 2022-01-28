@@ -152,6 +152,7 @@ public class MoveAroundTrad
 //			MonopolyRunner.player1.setPlace(20);
 //			System.out.println("You landed on Free Parking.");
 			
+			
 		}
 		
 		

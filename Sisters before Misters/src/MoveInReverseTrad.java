@@ -76,7 +76,7 @@ public class MoveInReverseTrad {
 		
 		Dice.rollDice();
 		System.out.println("You rolled a " + Dice.diceRoll);
-		reverseNewPlaceP2 = MonopolyRunner.player1.getPlace() - Dice.diceRoll;
+		reverseNewPlaceP2 = MonopolyRunner.player2.getPlace() - Dice.diceRoll;
 		System.out.println("Since you are moving in reverse, you landed on " + BoardArrayList.tradBoard.get(reverseNewPlaceP2).getName());
 		MonopolyRunner.player2.setPlace(reverseNewPlaceP2);
 		MoveAroundTrad.doAction2();
