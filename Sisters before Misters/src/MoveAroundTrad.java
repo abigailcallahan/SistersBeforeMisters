@@ -204,13 +204,13 @@ public class MoveAroundTrad
 			else if(MonopolyRunner.player1.getPlace() == 7 || MonopolyRunner.player1.getPlace() == 22 || MonopolyRunner.player1.getPlace() == 36)
 				{
 					//chance
-					ChanceRunner.shuffle();
+					ChanceRunnerTrad.shuffle();
 					
 					System.out.println("\nYou picked up: ");
-					ChanceRunner.Chance();
+					ChanceRunnerTrad.Chance();
 		
 					//set place to current place + or - 
-					chanceMove = ChanceRunner.cards.get(0).getChangePlace();
+					chanceMove = ChanceRunnerTrad.cardsTrad.get(0).getChangePlace();
 					MonopolyRunner.player1.setPlace(MonopolyRunner.player1.getPlace() + chanceMove);
 					for(Board b : BoardArrayList.tradBoard)
 						{
@@ -221,15 +221,15 @@ public class MoveAroundTrad
 						}
 					
 					//set money
-					chanceBalance = ChanceRunner.cards.get(0).getMoney();
+					chanceBalance = ChanceRunnerTrad.cardsTrad.get(0).getMoney();
 					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + chanceBalance);
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
-					ChanceRunner.cards.remove(0);
+					ChanceRunnerTrad.cardsTrad.remove(0);
 					
-					if(ChanceRunner.cards.size() == 0)
+					if(ChanceRunnerTrad.cardsTrad.size() == 0)
 						{
-							ChanceRunner.Chance();
+							ChanceRunnerTrad.Chance();
 						}
 				}
 			else if(MonopolyRunner.player1.getPlace() == 30)
@@ -323,20 +323,20 @@ public class MoveAroundTrad
 			else if(MonopolyRunner.player1.getPlace() == 2 || MonopolyRunner.player1.getPlace() == 17 || MonopolyRunner.player1.getPlace() == 33)
 				{
 					//community chest
-					ChestRunner.shuffle();
+					ChestRunnerTrad.shuffle();
 					
 					System.out.println("\nYou picked up: ");
-					ChestRunner.Chest();
+					ChestRunnerTrad.Chest();
 					
 					//set money
-					communityBalance = ChestRunner.cards.get(0).getMoney();
+					communityBalance = ChestRunnerTrad.cardsTrad.get(0).getMoney();
 					MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() + communityBalance);
 					System.out.println("Your balance is: " + MonopolyRunner.player1.getBalance());
 					
-					ChestRunner.cards.remove(0);
-					if(ChestRunner.cards.size() == 0)
+					ChestRunnerTrad.cardsTrad.remove(0);
+					if(ChestRunnerTrad.cardsTrad.size() == 0)
 						{
-							ChestRunner.Chest();
+							ChestRunnerTrad.Chest();
 						}
 				}
 			else if(MonopolyRunner.player1.getPlace() == 38)
@@ -387,13 +387,13 @@ public class MoveAroundTrad
 			else if(MonopolyRunner.player2.getPlace() == 7 || MonopolyRunner.player2.getPlace() == 22 || MonopolyRunner.player2.getPlace() == 36)
 				{
 					//chance
-					ChanceRunner.shuffle();
+					ChanceRunnerTrad.shuffle();
 					
 					System.out.println("\nYou picked up: ");
-					ChanceRunner.Chance();
+					ChanceRunnerTrad.Chance();
 		
 					//set place to current place + or - 
-					chanceMoveP2 = ChanceRunner.cards.get(0).getChangePlace();
+					chanceMoveP2 = ChanceRunnerTrad.cardsTrad.get(0).getChangePlace();
 					MonopolyRunner.player2.setPlace(MonopolyRunner.player2.getPlace() + chanceMoveP2);
 					for(Board b : BoardArrayList.tradBoard)
 						{
@@ -404,15 +404,15 @@ public class MoveAroundTrad
 						}
 					
 					//set money
-					chanceBalanceP2 = ChanceRunner.cards.get(0).getMoney();
+					chanceBalanceP2 = ChanceRunnerTrad.cardsTrad.get(0).getMoney();
 					MonopolyRunner.player2.setBalance(MonopolyRunner.player2.getBalance() + chanceBalanceP2);
 					System.out.println("Your balance is: " + MonopolyRunner.player2.getBalance());
 					
-					ChanceRunner.cards.remove(0);
+					ChanceRunnerTrad.cardsTrad.remove(0);
 					
-					if(ChanceRunner.cards.size() == 0)
+					if(ChanceRunnerTrad.cardsTrad.size() == 0)
 						{
-							ChanceRunner.Chance();
+							ChanceRunnerTrad.Chance();
 						}
 				}
 			else if(MonopolyRunner.player2.getPlace() == 30)
@@ -506,20 +506,20 @@ public class MoveAroundTrad
 			else if(MonopolyRunner.player2.getPlace() == 2 || MonopolyRunner.player2.getPlace() == 17 || MonopolyRunner.player2.getPlace() == 33)
 				{
 					//community chest
-					ChestRunner.shuffle();
+					ChestRunnerTrad.shuffle();
 					
 					System.out.println("\nYou picked up: ");
-					ChestRunner.Chest();
+					ChestRunnerTrad.Chest();
 					
 					//set money
-					communityBalanceP2 = ChestRunner.cards.get(0).getMoney();
+					communityBalanceP2 = ChestRunnerTrad.cardsTrad.get(0).getMoney();
 					MonopolyRunner.player2.setBalance(MonopolyRunner.player2.getBalance() + communityBalanceP2);
 					System.out.println("Your balance is: " + MonopolyRunner.player2.getBalance());
 					
-					ChestRunner.cards.remove(0);
-					if(ChestRunner.cards.size() == 0)
+					ChestRunnerTrad.cardsTrad.remove(0);
+					if(ChestRunnerTrad.cardsTrad.size() == 0)
 						{
-							ChestRunner.Chest();
+							ChestRunnerTrad.Chest();
 						}
 				}
 			else if(MonopolyRunner.player2.getPlace() == 38)
