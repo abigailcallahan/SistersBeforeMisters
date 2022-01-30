@@ -36,10 +36,6 @@ public class MoveAroundTrad
 		static String enter3;
 		static String enter3P2;
 		
-		//boardarraylist done in moveAroundTrad
-		//chest
-		//chance
-		
 		
 		//player 1
 		public static void startMoving()
@@ -189,8 +185,8 @@ public class MoveAroundTrad
 			
 			
 			//free parking method test
-			//MonopolyRunner.player2.setPlace(20);
-			//System.out.println("You landed on free parking");
+//			MonopolyRunner.player2.setPlace(20);
+//			System.out.println("You landed on free parking");
 		}
 		
 		
@@ -352,7 +348,7 @@ public class MoveAroundTrad
 				{
 					//free parking
 					System.out.println("You have to move in reverse now!");
-					MoveInReverse.moveInReverse();
+					MoveInReverseTrad.moveInReverse();
 					
 					
 				}
@@ -535,7 +531,7 @@ public class MoveAroundTrad
 				{
 					//free parking
 					System.out.println("You have to move in reverse now!");
-					MoveInReverse.moveInReverse2();
+					MoveInReverseTrad.moveInReverse2();
 					
 					
 				}
