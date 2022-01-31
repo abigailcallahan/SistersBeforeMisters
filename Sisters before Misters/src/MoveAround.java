@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 //done with player 2
-
 public class MoveAround
 	{
 		static Scanner input = new Scanner(System.in);
@@ -77,7 +76,6 @@ public class MoveAround
 		//player 2
 		public static void startMoving2()
 		{
-		
 			//continue rolling or show inventory?
 			System.out.println("\nWould you like to: ");
 			System.out.println("1) continue rolling");
@@ -240,7 +238,6 @@ public class MoveAround
 					jailDecision = input.nextInt();
 					System.out.println();
 					
-					
 					if(jailDecision == 1)
 					{
 						MonopolyRunner.player1.setBalance(MonopolyRunner.player1.getBalance() - 50);
@@ -311,11 +308,9 @@ public class MoveAround
 								}
 							}
 						}
-					}
-					
-					
-					
+					}	
 				}
+			
 			else if(MonopolyRunner.player1.getPlace() == 2 || MonopolyRunner.player1.getPlace() == 17 || MonopolyRunner.player1.getPlace() == 33)
 				{
 					//community chest
