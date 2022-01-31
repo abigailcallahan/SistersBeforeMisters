@@ -53,7 +53,6 @@ public class MonopolyRunner
 							player1TurnTrad();
 							player2TurnTrad();
 						}
-				
 					if(player1.getBalance() <= 0)
 					{
 						System.out.println("Player 1 ran out of money, the game is over");

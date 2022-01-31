@@ -10,14 +10,12 @@ public class ShowInventory
 	{
 		//fillInventoryList();
 		displayInventory();
-		//emptyList();
 	}
 	
 	public static void showInventory2()
 	{
 		//fillInventoryList();
 		displayInventory2();
-		//emptyList();
 	}
 	
 	
@@ -47,10 +45,6 @@ public class ShowInventory
 			System.out.println();
 		}
 	
-	public static void emptyList()
-	{
-		player1Inventory.removeAll(player1Inventory);
-	}
 	
 	
 	
